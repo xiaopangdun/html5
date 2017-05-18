@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<script>
+    $(document).ready(function() {
+        $.extend($.expr[':'], {
+            moreThen1000px: function(a) {
+                return $(a).width() > 1000;
+            }
+        });
+        $('.box:moreThen1000px').click(function() {
+            var h = $(this).text();
+            alert(h);
+        });
+        $('#tihuan').replaceWith('<div>替换后</div>');
+        $('a.top').click(function () {
+            $(document.body).animate({scrollTop: 0}, 800);
+            return false;
+        });
+        $('a.no-link').click(function (e) {
+            e.preventDefault();
+        });
+    });
+
+</script>
+<body>
+<div class="box" style="width: 1001px;height: 30px;background-color: blue; ">
+    1001px,text
+</div>
+<div class="box" style="width: 1000px;height: 30px;background-color: green; ">
+    1000px,text
+</div>
+<a class="no-link" href="http://www.baidu.com">百度-阻止链接</a>
+<div class="box" style="width: 1000px;height: 2000px; ">
+    高度
+</div>
+<a class="top" href="javascript:void(0)">回到顶部</a>
+<div id="tihuan">替换前</div>
+</body>
+</html>
