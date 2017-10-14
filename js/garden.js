@@ -129,7 +129,12 @@
 	            }
 	        },
 	        createRandomBloom: function (x, y) {
-	            this.createBloom(x, y, Garden.randomInt(Garden.options.bloomRadius.min, Garden.options.bloomRadius.max), Garden.randomrgba(Garden.options.color.rmin, Garden.options.color.rmax, Garden.options.color.gmin, Garden.options.color.gmax, Garden.options.color.bmin, Garden.options.color.bmax, Garden.options.color.opacity), Garden.randomInt(Garden.options.petalCount.min, Garden.options.petalCount.max));
+				var n = Math.random()*100;
+				var flowerColor = Garden.options.color;
+				if(n<15){
+					flowerColor = Garden.options.color1;
+				}
+	            this.createBloom(x, y, Garden.randomInt(Garden.options.bloomRadius.min, Garden.options.bloomRadius.max), Garden.randomrgba(flowerColor.rmin, flowerColor.rmax, flowerColor.gmin, flowerColor.gmax, flowerColor.bmin, flowerColor.bmax, Garden.options.color.opacity), Garden.randomInt(Garden.options.petalCount.min, Garden.options.petalCount.max));
 	        },
 	        createBloom: function (x, y, r, c, pc) {
 	            new Bloom(new Vector(x, y), r, c, pc, this);
@@ -159,15 +164,24 @@
 	        },
 	        density: 10,
 	        growSpeed: 1000 / 60,
-	        color: {
+	        color1: {
+				rmin: 25,
+				rmax: 55,
+				gmin: 150,
+				gmax: 180,
+				bmin: 20,
+				bmax: 30,
+	            opacity: 0.1
+	        },
+			color: {
 				rmin: 128,
 				rmax: 255,
 				gmin: 0,
 				gmax: 128,
 				bmin: 0,
 				bmax: 128,
-	            opacity: 0.1
-	        },
+				opacity: 0.1
+			},
 	        tanAngle: 60
 	    };
 	    Garden.random = function (min, max) {
