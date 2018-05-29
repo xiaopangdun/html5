@@ -14,13 +14,18 @@
         margin: auto;
         width: 60%;padding-top: 300px;
     }
+    button{
+        width: 80px;
+        height: 50px;
+        background-color: #97fff8;
+    }
 </style>
 <body class="gray-bg">
 <div class="site-index">
     <div class="jumbotron">
-        <div style="margin-bottom: 8px;"><button id="tip" onclick="tip();">提示</button>&nbsp;&nbsp;&nbsp;&nbsp<button id="refresh" onclick="toRefresh();">刷新</button></div>
+        <div style="margin-bottom: 26px;"><button id="tip" onclick="tip();">提示</button>&nbsp;&nbsp;&nbsp;&nbsp<button id="refresh" onclick="toRefresh();">刷新</button></div>
 
-        <table border="1px;" style="font-size: 26px;width: 100%">
+        <table border="1px;" style="font-size: 40px;width: 100%">
             <?php
             require './data.php';
             shuffle($dataProvider);
@@ -40,16 +45,16 @@
 </div>
 <script src="/html5/js/jquery.js"></script>
 <script>
-function tip() {
-    $(".tip").fadeIn(2);
-    var  n = 5;
-    timer = setTimeout(function () {
+    function tip() {
+        $(".tip").fadeIn(2);
+        var  n = 5;
+        timer = setTimeout(function () {
             $(".tip").fadeOut(2);
-    },'3000');
-}
-function toRefresh() {
-    window.location.href = window.location.href;
-}
+        },'3000');
+    }
+    function toRefresh() {
+        window.location.href = window.location.href;
+    }
 </script>
 </body>
 </html>
