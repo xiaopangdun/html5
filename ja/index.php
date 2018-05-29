@@ -34,7 +34,7 @@
                 if($k%5==0){
                     echo "<tr>";
                 }
-                echo "<td>".$d[0]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='tip' style='display: none'>".$d[1]."</span></td>";
+                echo "<td>".$d[0]."<br/><span class='tip' style='display: none'>".$d[1]."</span></td>";
                 if(($k+1)%5==0){
                     echo "</tr>";
                 }
